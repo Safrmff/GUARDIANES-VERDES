@@ -8,14 +8,15 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: url('https://i.imgur.com/jXy3k6E.jpg') no-repeat center center fixed;
-      background-size: cover;
+      /* Fondo con patrón */
+      background: linear-gradient(135deg, #c8facc 25%, #f5fff5 25%, #f5fff5 50%, #c8facc 50%, #c8facc 75%, #f5fff5 75%, #f5fff5);
+      background-size: 40px 40px;
       color: #222;
       line-height: 1.6;
     }
 
     header {
-      background: rgba(0, 128, 0, 0.7);
+      background: #006400;
       color: white;
       padding: 20px;
       text-align: center;
@@ -28,7 +29,7 @@
     /* Carrusel */
     .carousel {
       position: relative;
-      max-width: 100%;
+      max-width: 800px;
       margin: 20px auto;
       overflow: hidden;
       border-radius: 12px;
@@ -42,17 +43,35 @@
 
     .carousel img.active {
       display: block;
-      animation: fade 2s;
     }
 
-    @keyframes fade {
-      from {opacity: 0.4}
-      to {opacity: 1}
+    .carousel button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      border-radius: 50%;
+    }
+
+    .carousel button:hover {
+      background: rgba(0,0,0,0.8);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
     }
 
     /* Secciones */
     section {
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.9);
       margin: 20px auto;
       padding: 20px;
       max-width: 1000px;
@@ -83,7 +102,7 @@
     }
 
     footer {
-      background: rgba(0, 100, 0, 0.8);
+      background: #004d00;
       color: white;
       text-align: center;
       padding: 15px;
@@ -100,9 +119,11 @@
 
   <!-- Carrusel -->
   <div class="carousel">
-    <img src="https://i.imgur.com/9YQF6zQ.jpg" class="active" alt="Reciclaje">
-    <img src="https://i.imgur.com/hO7lL5c.jpg" alt="Naturaleza">
-    <img src="https://i.imgur.com/9HgCZyX.jpg" alt="Planeta feliz">
+    <img src="https://picsum.photos/800/400?random=1" class="active" alt="Imagen 1">
+    <img src="https://picsum.photos/800/400?random=2" alt="Imagen 2">
+    <img src="https://picsum.photos/800/400?random=3" alt="Imagen 3">
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
   </div>
 
   <!-- Sección Propósito -->
@@ -113,12 +134,6 @@
       donde estudiantes y docentes puedan compartir ideas, recursos y avances 
       de los proyectos escolares. Queremos que sea un lugar para inspirar, 
       aprender juntos y motivarnos a cuidar nuestro entorno.
-    </p>
-    <p>
-      Aquí se publicarán contenidos relacionados con la ecología, el trabajo 
-      en equipo, la innovación y el compromiso con la comunidad educativa. 
-      Cada sección estará diseñada para aportar al crecimiento integral de 
-      todos los participantes.
     </p>
   </section>
 
@@ -131,15 +146,10 @@
       investigativas y sociales. Cada objetivo estará acompañado de una 
       actividad práctica que nos ayudará a cumplir con las metas.
     </p>
-    <p>
-      Ejemplos de actividades incluyen campañas de reciclaje, jornadas de 
-      limpieza, talleres de innovación, debates y charlas educativas sobre 
-      el cuidado del medio ambiente.
-    </p>
 
     <!-- Video de YouTube -->
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/BYtJd3i0C7A" 
+      <iframe src="https://www.youtube.com/embed/dqT-UlYlg1s" 
               title="Video educativo sobre reciclaje" 
               frameborder="0" 
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
@@ -148,55 +158,30 @@
     </div>
   </section>
 
-  <!-- Sección Recursos -->
-  <section>
-    <h2>Recursos y Materiales</h2>
-    <p>
-      Para el desarrollo del proyecto, contamos con recursos digitales como 
-      esta página web, presentaciones, documentos compartidos y videos. 
-      También utilizaremos materiales reciclados, carteles informativos y 
-      dinámicas grupales que apoyen las actividades propuestas.
-    </p>
-    <p>
-      El uso de tecnología nos permitirá organizar la información, mientras 
-      que el trabajo manual fomentará la creatividad y el compromiso.
-    </p>
-  </section>
-
-  <!-- Sección Reflexión -->
-  <section>
-    <h2>Reflexión y Compromiso</h2>
-    <p>
-      Nuestro proyecto colaborativo busca dejar una huella positiva tanto 
-      en el colegio como en la comunidad. Creemos que a través del trabajo 
-      en equipo y la educación podemos generar cambios reales y duraderos.
-    </p>
-    <p>
-      Invitamos a todos los estudiantes a participar activamente, aportar 
-      ideas y comprometerse con las metas que nos hemos propuesto. Juntos 
-      construiremos un mejor futuro.
-    </p>
-  </section>
-
   <footer>
     <p>&copy; 2025 Proyecto Colaborativo Escolar - Todos los derechos reservados</p>
   </footer>
 
   <script>
-    // Carrusel automático
-    let currentIndex = 0;
     const images = document.querySelectorAll('.carousel img');
+    let currentIndex = 0;
 
-    function showNextImage() {
+    document.querySelector('.next').addEventListener('click', () => {
       images[currentIndex].classList.remove('active');
       currentIndex = (currentIndex + 1) % images.length;
       images[currentIndex].classList.add('active');
-    }
+    });
 
-    setInterval(showNextImage, 3000); // Cambia cada 3 segundos
+    document.querySelector('.prev').addEventListener('click', () => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex - 1 + images.length) % images.length;
+      images[currentIndex].classList.add('active');
+    });
   </script>
 
 </body>
+</html>
+
 </html>
 net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
