@@ -1,69 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Guardianes Verdes</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Guardianes Verdes</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome (iconos) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Guardianes Verdes</h1>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#quienes">Quiénes Somos</a></li>
-                <li><a href="#actividades">Actividades</a></li>
-                <li><a href="#galeria">Galería</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
 
-    <section id="inicio">
-        <h2>Bienvenidos</h2>
-        <p>Guardianes Verdes es un proyecto colaborativo escolar que busca fomentar la conciencia ambiental mediante el reciclaje, el cuidado de la naturaleza y la participación de toda la comunidad educativa.</p>
+  <header class="site-header">
+    <div class="container">
+      <h1>Guardianes Verdes</h1>
+      <nav class="main-nav">
+        <a href="#inicio">Inicio</a>
+        <a href="#quienes">Quiénes Somos</a>
+        <a href="#actividades">Actividades</a>
+        <a href="#galeria">Galería</a>
+        <a href="#video">Video</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section id="inicio" class="container reveal">
+      <h2>Bienvenidos</h2>
+      <p>Guardianes Verdes es un proyecto colaborativo escolar que busca fomentar la conciencia ambiental mediante el reciclaje, el cuidado de la naturaleza y la participación de la comunidad educativa.</p>
     </section>
 
-    <section id="quienes">
-        <h2>Quiénes Somos</h2>
-        <p>Somos un grupo de estudiantes comprometidos con el medio ambiente, organizados para liderar campañas ecológicas en nuestro colegio y comunidad. Creemos que cada acción cuenta para proteger el planeta.</p>
+    <section id="quienes" class="container reveal">
+      <h2>Quiénes Somos</h2>
+      <p>Somos estudiantes comprometidos con el medio ambiente. Organizamos campañas ecológicas y actividades educativas para nuestro colegio.</p>
     </section>
 
-    <section id="actividades">
-        <h2>Actividades</h2>
-        <ul>
-            <li>Campañas de reciclaje dentro y fuera del colegio.</li>
-            <li>Charlas educativas sobre el cuidado ambiental.</li>
-            <li>Proyectos creativos con materiales reutilizados.</li>
-        </ul>
+    <section id="actividades" class="container reveal">
+      <h2>Actividades</h2>
+      <ul>
+        <li>Campañas de reciclaje.</li>
+        <li>Charlas y talleres educativos.</li>
+        <li>Proyectos creativos con materiales reutilizados.</li>
+      </ul>
     </section>
 
-    <section id="galeria">
-        <h2>Galería</h2>
-        <div class="carousel">
-            <div class="slides fade">
-                <img src="img/reciclaje.png" alt="Reciclaje escolar">
-            </div>
-            <div class="slides fade">
-                <img src="img/naturaleza.png" alt="Niños cuidando la naturaleza">
-            </div>
-            <div class="slides fade">
-                <img src="img/planeta.png" alt="Planeta feliz">
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <!-- Carrusel mejorado -->
+    <section id="carrusel" class="container reveal">
+      <h2>Galería (carrusel)</h2>
+      <div class="carousel" id="mainCarousel">
+        <div class="slide"><img src="img/reciclaje.png" alt="Reciclaje escolar" loading="lazy"></div>
+        <div class="slide"><img src="img/naturaleza.png" alt="Niños cuidando la naturaleza" loading="lazy"></div>
+        <div class="slide"><img src="img/planeta.png" alt="Planeta feliz" loading="lazy"></div>
+
+        <button class="prev" aria-label="Anterior">&#10094;</button>
+        <button class="next" aria-label="Siguiente">&#10095;</button>
+
+        <div class="dots" aria-hidden="true">
+          <span class="dot"></span>
+          <span class="dot"></span>
+          <span class="dot"></span>
         </div>
+      </div>
     </section>
 
-    <section id="contacto">
-        <h2>Contacto</h2>
-        <p>Si deseas unirte al proyecto o proponer actividades, contáctanos en: <b>guardianesverdes@colegio.edu</b></p>
+    <!-- Galería en rejilla con lightbox -->
+    <section id="galeria" class="container reveal">
+      <h2>Galería</h2>
+      <div class="gallery-grid">
+        <img src="img/reciclaje.png" alt="Reciclaje" data-index="0" loading="lazy">
+        <img src="img/naturaleza.png" alt="Naturaleza" data-index="1" loading="lazy">
+        <img src="img/planeta.png" alt="Planeta feliz" data-index="2" loading="lazy">
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2025 Guardianes Verdes - Proyecto Escolar</p>
-    </footer>
+    <!-- Video embed (YouTube recomendado) -->
+    <section id="video" class="container reveal">
+      <h2>Video educativo</h2>
+      <div class="video-wrapper">
+        <!-- Reemplaza VIDEO_ID por el id del video en YouTube -->
+        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video reciclaje" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </section>
+
+    <section id="contacto" class="container reveal">
+      <h2>Contacto</h2>
+      <p>Si quieres unirte al proyecto, escribe a <a href="mailto:guardianesverdes@colegio.edu">guardianesverdes@colegio.edu</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; 2025 Guardianes Verdes - Proyecto Escolar</p>
+    </div>
+  </footer>
+
+  <!-- Lightbox modal -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button class="lb-close" aria-label="Cerrar">&times;</button>
+    <button class="lb-prev" aria-label="Imagen anterior">&#10094;</button>
+    <img class="lb-img" src="" alt="">
+    <button class="lb-next" aria-label="Imagen siguiente">&#10095;</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
 
     <script src="script.js"></script>
 </body>
