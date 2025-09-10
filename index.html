@@ -1,117 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Guardianes Verdes</title>
-
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome (iconos) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
-  <link rel="stylesheet" href="style.css">
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f1faee; /* Fondo verde clarito */
+      font-family: Arial, sans-serif;
+    }
+    header {
+      background-color: #2a9d8f;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    nav a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+    section {
+      padding: 40px;
+      text-align: center;
+    }
+    h2 {
+      margin-bottom: 20px;
+      font-weight: bold;
+      color: #264653;
+    }
+    footer {
+      background-color: #2a9d8f;
+      color: white;
+      padding: 15px;
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <h1>Guardianes Verdes</h1>
-      <nav class="main-nav">
-        <a href="#inicio">Inicio</a>
-        <a href="#quienes">Quiénes Somos</a>
-        <a href="#actividades">Actividades</a>
-        <a href="#galeria">Galería</a>
-        <a href="#video">Video</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
+  <header>
+    Guardianes Verdes
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#quienes">Quiénes Somos</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#carrusel">Galería</a>
+      <a href="#video">Video</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
 
-  <main>
-    <section id="inicio" class="container reveal">
-      <h2>Bienvenidos</h2>
-      <p>Guardianes Verdes es un proyecto colaborativo escolar que busca fomentar la conciencia ambiental mediante el reciclaje, el cuidado de la naturaleza y la participación de la comunidad educativa.</p>
-    </section>
+  <section id="inicio">
+    <h2>Bienvenidos</h2>
+    <p>Guardianes Verdes es un proyecto colaborativo escolar que busca fomentar la conciencia ambiental mediante el reciclaje, el cuidado de la naturaleza y la participación de toda la comunidad educativa.</p>
+  </section>
 
-    <section id="quienes" class="container reveal">
-      <h2>Quiénes Somos</h2>
-      <p>Somos estudiantes comprometidos con el medio ambiente. Organizamos campañas ecológicas y actividades educativas para nuestro colegio.</p>
-    </section>
+  <section id="quienes">
+    <h2>Quiénes Somos</h2>
+    <p>Somos un grupo de estudiantes comprometidos con el medio ambiente, organizados para liderar campañas ecológicas en nuestro colegio y comunidad.</p>
+  </section>
 
-    <section id="actividades" class="container reveal">
-      <h2>Actividades</h2>
-      <ul>
-        <li>Campañas de reciclaje.</li>
-        <li>Charlas y talleres educativos.</li>
-        <li>Proyectos creativos con materiales reutilizados.</li>
-      </ul>
-    </section>
+  <section id="actividades">
+    <h2>Actividades</h2>
+    <ul style="list-style: disc; text-align: left; max-width: 600px; margin: auto;">
+      <li>Campañas de reciclaje dentro y fuera del colegio.</li>
+      <li>Charlas y talleres educativos sobre el cuidado ambiental.</li>
+      <li>Proyectos creativos con materiales reutilizados.</li>
+    </ul>
+  </section>
 
-    <!-- Carrusel mejorado -->
-    <section id="carrusel" class="container reveal">
-      <h2>Galería (carrusel)</h2>
-      <div class="carousel" id="mainCarousel">
-        <div class="slide"><img src="img/reciclaje.png" alt="Reciclaje escolar" loading="lazy"></div>
-        <div class="slide"><img src="img/naturaleza.png" alt="Niños cuidando la naturaleza" loading="lazy"></div>
-        <div class="slide"><img src="img/planeta.png" alt="Planeta feliz" loading="lazy"></div>
-
-        <button class="prev" aria-label="Anterior">&#10094;</button>
-        <button class="next" aria-label="Siguiente">&#10095;</button>
-
-        <div class="dots" aria-hidden="true">
-          <span class="dot"></span>
-          <span class="dot"></span>
-          <span class="dot"></span>
+  <!-- Carrusel -->
+  <section id="carrusel">
+    <h2>Galería (Carrusel)</h2>
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel" style="max-width:600px; margin:auto;">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="reciclaje.jpg" class="d-block w-100" alt="Reciclaje escolar">
+        </div>
+        <div class="carousel-item">
+          <img src="naturaleza.jpg" class="d-block w-100" alt="Naturaleza">
+        </div>
+        <div class="carousel-item">
+          <img src="planeta.jpg" class="d-block w-100" alt="Planeta feliz">
         </div>
       </div>
-    </section>
-
-    <!-- Galería en rejilla con lightbox -->
-    <section id="galeria" class="container reveal">
-      <h2>Galería</h2>
-      <div class="gallery-grid">
-        <img src="img/reciclaje.png" alt="Reciclaje" data-index="0" loading="lazy">
-        <img src="img/naturaleza.png" alt="Naturaleza" data-index="1" loading="lazy">
-        <img src="img/planeta.png" alt="Planeta feliz" data-index="2" loading="lazy">
-      </div>
-    </section>
-
-    <!-- Video embed (YouTube recomendado) -->
-    <section id="video" class="container reveal">
-      <h2>Video educativo</h2>
-      <div class="video-wrapper">
-        <!-- Reemplaza VIDEO_ID por el id del video en YouTube -->
-        <iframe src="https://www.youtube.com/embed/VIDEO_ID" title="Video reciclaje" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
-    </section>
-
-    <section id="contacto" class="container reveal">
-      <h2>Contacto</h2>
-      <p>Si quieres unirte al proyecto, escribe a <a href="mailto:guardianesverdes@colegio.edu">guardianesverdes@colegio.edu</a></p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <p>&copy; 2025 Guardianes Verdes - Proyecto Escolar</p>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
     </div>
+  </section>
+
+  <!-- Galería simple -->
+  <section id="galeria">
+    <h2>Galería</h2>
+    <div style="display:flex; justify-content: center; gap:20px; flex-wrap:wrap;">
+      <img src="reciclaje.jpg" alt="Reciclaje" width="200">
+      <img src="naturaleza.jpg" alt="Naturaleza" width="200">
+      <img src="planeta.jpg" alt="Planeta feliz" width="200">
+    </div>
+  </section>
+
+  <!-- Video -->
+  <section id="video">
+    <h2>Video Educativo</h2>
+    <iframe width="560" height="315" src="https://youtu.be/LoWRxBdDJmE" title="Importancia del reciclaje" frameborder="0" allowfullscreen></iframe>
+  </section>
+
+  <!-- Contacto -->
+  <section id="contacto">
+    <h2>Contacto</h2>
+    <p>Escríbenos a: <b>guardianesverdes@colegio.edu</b></p>
+  </section>
+
+  <footer>
+    &copy; 2025 Guardianes Verdes - Todos los derechos reservados
   </footer>
 
-  <!-- Lightbox modal -->
-  <div id="lightbox" class="lightbox" aria-hidden="true">
-    <button class="lb-close" aria-label="Cerrar">&times;</button>
-    <button class="lb-prev" aria-label="Imagen anterior">&#10094;</button>
-    <img class="lb-img" src="" alt="">
-    <button class="lb-next" aria-label="Imagen siguiente">&#10095;</button>
-  </div>
-
-  <script src="script.js"></script>
-</body>
-</html>
-
-
-    <script src="script.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
