@@ -1,71 +1,81 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f0fff0;
-    color: #333;
+:root{
+  --green:#2e8b57;
+  --dark-green:#16632b;
+  --bg:#f3fff3;
+  --container-max:1100px;
 }
-header {
-    background: #228B22;
-    color: white;
-    padding: 1em 0;
-    text-align: center;
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Poppins',system-ui,Arial, sans-serif;
+  margin:0; background:var(--bg); color:#222;
+  line-height:1.5;
 }
-header nav ul {
-    list-style: none;
-    padding: 0;
+
+/* Container centrado */
+.container{
+  max-width:var(--container-max);
+  margin:0 auto;
+  padding:40px 20px;
 }
-header nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
-header nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-}
-section {
-    padding: 2em;
-    text-align: center;
-}
-footer {
-    background: #006400;
-    color: white;
-    text-align: center;
-    padding: 1em 0;
-    margin-top: 20px;
-}
+
+/* Header y nav */
+.site-header{background:var(--green); color:white; position:sticky; top:0; z-index:1000}
+.site-header .container{display:flex; align-items:center; justify-content:space-between; padding:18px 20px}
+.site-header h1{margin:0; font-size:1.6rem; font-weight:700}
+.main-nav a{color:white; text-decoration:none; margin:0 12px; font-weight:600}
+.main-nav a:hover{opacity:0.9}
+
+/* Titulos */
+h2{color:var(--dark-green); text-align:center; margin-bottom:12px}
+
 /* Carrusel */
-.carousel {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
+.carousel{position:relative; max-width:820px; margin:0 auto}
+.slide{display:none}
+.slide img{width:100%; border-radius:10px; display:block; box-shadow:0 6px 18px rgba(0,0,0,0.12)}
+.prev,.next{
+  position:absolute; top:50%; transform:translateY(-50%); background:rgba(0,0,0,0.45);
+  color:white; border:none; padding:8px 12px; cursor:pointer; border-radius:6px;
 }
-.slides {
-    display: none;
+.prev{left:10px}
+.next{right:10px}
+.dots{display:flex; justify-content:center; gap:8px; margin-top:10px}
+.dot{width:10px; height:10px; background:#ddd; border-radius:50%; display:inline-block; cursor:pointer}
+.dot.active{background:var(--dark-green)}
+
+/* Gallery grid */
+.gallery-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:16px; align-items:center}
+.gallery-grid img{width:100%; height:170px; object-fit:cover; border-radius:8px; cursor:pointer; transition:transform .25s ease, box-shadow .25s ease}
+.gallery-grid img:hover{transform:translateY(-6px); box-shadow:0 8px 20px rgba(0,0,0,0.12)}
+
+/* Video */
+.video-wrapper{max-width:900px; margin:0 auto; position:relative; padding-bottom:56.25%; height:0; overflow:hidden}
+.video-wrapper iframe{position:absolute; top:0; left:0; width:100%; height:100%}
+
+/* Footer */
+.site-footer{background:var(--dark-green); color:white; padding:18px 0; text-align:center}
+
+/* Lightbox modal */
+.lightbox{
+  display:none; position:fixed; inset:0; background:rgba(0,0,0,0.85);
+  align-items:center; justify-content:center; z-index:2000;
 }
-.slides img {
-    width: 100%;
-    border-radius: 10px;
+.lightbox .lb-img{max-width:92%; max-height:80%; border-radius:8px}
+.lb-close,.lb-prev,.lb-next{
+  position:absolute; background:transparent; border:none; color:white; font-size:32px; cursor:pointer;
 }
-.prev, .next {
-    cursor: pointer;
-    position: absolute;
-    top: 50%;
-    width: auto;
-    padding: 16px;
-    margin-top: -22px;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    transition: 0.6s ease;
-    border-radius: 0 3px 3px 0;
-    user-select: none;
-}
-.next {
-    right: 0;
-    border-radius: 3px 0 0 3px;
-}
-.prev:hover, .next:hover {
-    background-color: rgba(0,0,0,0.8);
+.lb-close{top:20px; right:28px}
+.lb-prev{left:28px; top:50%; transform:translateY(-50%)}
+.lb-next{right:28px; top:50%; transform:translateY(-50%)}
+
+/* Reveal animation (scroll) */
+.reveal{opacity:0; transform:translateY(16px); transition:all .6s ease-out}
+.reveal.visible{opacity:1; transform:none}
+
+/* Responsive */
+@media (max-width:700px){
+  .site-header .container{flex-direction:column; gap:8px}
+  .main-nav{font-size:14px}
+  .gallery-grid img{height:140px}
 }
